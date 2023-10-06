@@ -1,0 +1,113 @@
+[gd_scene load_steps=4 format=3 uid="uid://du6otsitr4ryg"]
+
+[ext_resource type="Script" path="res://internal/pausemenu/main.gd" id="1_rsxfe"]
+[ext_resource type="PackedScene" uid="uid://b1n7afr0tykjh" path="res://maps/mapselector.tscn" id="2_l5kkk"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_eq2ec"]
+font_size = 100
+
+[node name="main" type="Control"]
+process_mode = 3
+z_index = 16
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rsxfe")
+
+[node name="blur" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.380392, 0.380392, 0.380392, 0.639216)
+
+[node name="title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.029
+anchor_top = 0.045
+anchor_right = 0.339
+anchor_bottom = 0.261
+offset_left = -0.408001
+offset_top = -4.16
+offset_right = 0.471985
+offset_bottom = -4.12801
+text = "a-game"
+label_settings = SubResource("LabelSettings_eq2ec")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.035
+anchor_top = 0.312
+anchor_right = 0.269
+anchor_bottom = 0.432
+offset_left = -1.32
+offset_top = -4.17601
+offset_right = 0.111969
+offset_bottom = -5.936
+text = "Resume"
+
+[node name="loadgamebutton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.035
+anchor_top = 0.481
+anchor_right = 0.268
+anchor_bottom = 0.599
+offset_left = -2.32
+offset_top = -3.68802
+offset_right = 0.263977
+offset_bottom = -4.15204
+text = "Load Game"
+
+[node name="Button3" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.034
+anchor_top = 0.653
+anchor_right = 0.269
+anchor_bottom = 0.77
+offset_left = -0.168003
+offset_top = -4.14404
+offset_right = 0.111969
+offset_bottom = -3.96002
+text = "Settings"
+
+[node name="Button4" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.033
+anchor_top = 0.823
+anchor_right = 0.268
+anchor_bottom = 0.94
+offset_left = -0.0159988
+offset_top = -4.30402
+offset_right = 0.263977
+offset_bottom = -4.12006
+text = "Quit"
+
+[node name="mapselector" parent="." instance=ExtResource("2_l5kkk")]
+visible = false
+layout_mode = 1
+
+[node name="loadmapclose" type="Button" parent="mapselector"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.944
+anchor_top = 0.023
+anchor_right = 0.977
+anchor_bottom = 0.079
+offset_left = -2.48804
+offset_top = 0.0959988
+offset_right = -0.504028
+offset_bottom = 3.808
+text = "X"
+
+[connection signal="pressed" from="loadgamebutton" to="." method="_on_loadgamebutton_pressed"]
+[connection signal="pressed" from="mapselector/loadmapclose" to="." method="_on_loadmapclose_pressed"]

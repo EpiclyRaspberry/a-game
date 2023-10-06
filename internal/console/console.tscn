@@ -1,0 +1,102 @@
+[gd_scene load_steps=7 format=3 uid="uid://c86vtla73anli"]
+
+[ext_resource type="FontFile" uid="uid://cfuge52dwvbk3" path="res://assets/fonts/Poppins-Regular.ttf" id="1_cw4on"]
+[ext_resource type="Script" path="res://internal/console/typethingy.gd" id="2_pu37d"]
+[ext_resource type="Script" path="res://internal/console/settext.gd" id="5_a0vd4"]
+[ext_resource type="Script" path="res://internal/console/console.gd" id="5_ne7sx"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_2mpvv"]
+font = ExtResource("1_cw4on")
+font_size = 22
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_0iox1"]
+font_size = 13
+
+[node name="console" type="Control"]
+process_mode = 3
+visible = false
+top_level = true
+z_index = 23
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("5_ne7sx")
+
+[node name="base" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 547.0
+offset_top = 42.0
+offset_right = -63.0
+offset_bottom = -217.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.192157, 0.192157, 0.192157, 0.698039)
+
+[node name="title" type="Label" parent="base"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.002
+anchor_right = 1.0
+anchor_bottom = 0.059
+offset_left = -1.084
+offset_bottom = 0.0489979
+grow_horizontal = 2
+text = "Console"
+label_settings = SubResource("LabelSettings_2mpvv")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="base/title"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.945
+anchor_right = 1.0
+anchor_bottom = 0.857
+offset_left = -0.190002
+offset_bottom = 0.00499725
+text = "☒"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="base"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.082
+anchor_right = 0.996
+anchor_bottom = 0.91
+offset_top = 0.101999
+offset_right = 0.167969
+offset_bottom = 0.00997925
+follow_focus = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="base/ScrollContainer"]
+layout_mode = 2
+script = ExtResource("5_a0vd4")
+
+[node name="text" type="Label" parent="base/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_0iox1")
+
+[node name="typethingy" type="LineEdit" parent="base"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.92
+anchor_right = 0.998
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 0.119995
+offset_right = 1.08398
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_pu37d")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
