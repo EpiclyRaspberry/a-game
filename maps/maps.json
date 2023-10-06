@@ -1,0 +1,12 @@
+[
+	{
+		"name":"Map 1",
+		"description":"This is Map 1",
+		"path":"map1"
+	},
+	{
+		"name":"Map 2",
+		"description":"This is Map 2",
+		"path":"map2"
+	}
+]

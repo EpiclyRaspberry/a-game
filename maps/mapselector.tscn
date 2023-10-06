@@ -1,0 +1,71 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1n7afr0tykjh"]
+
+[ext_resource type="Script" path="res://internal/mapselector.gd" id="1_oncho"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6pql8"]
+font_size = 30
+
+[node name="mapselector" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 32.0
+offset_right = 8.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_oncho")
+
+[node name="MapList" type="ItemList" parent="."]
+layout_mode = 2
+anchor_left = 0.333
+anchor_top = 0.494
+anchor_right = 0.333
+anchor_bottom = 0.494
+offset_left = -319.616
+offset_top = -256.112
+offset_right = 320.384
+offset_bottom = 255.888
+max_text_lines = 30
+
+[node name="MapName" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.806
+anchor_top = 0.142
+anchor_right = 0.806
+anchor_bottom = 0.142
+offset_left = -192.512
+offset_top = -28.016
+offset_right = 191.488
+offset_bottom = 35.984
+text = "Select a map from the list"
+label_settings = SubResource("LabelSettings_6pql8")
+horizontal_alignment = 1
+
+[node name="MapDesc" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.806
+anchor_top = 0.346
+anchor_right = 0.806
+anchor_bottom = 0.346
+offset_left = -192.512
+offset_top = -96.208
+offset_right = 191.488
+offset_bottom = 95.792
+text = "Map Description"
+
+[node name="PlayButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 864.0
+offset_top = 352.0
+offset_right = 992.0
+offset_bottom = 383.0
+disabled = true
+text = "Play [map]"
+
+[connection signal="item_clicked" from="MapList" to="." method="_on_map_list_item_clicked"]
+[connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
