@@ -18,9 +18,9 @@ func _ready():
 		
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	if Input.is_action_just_pressed("ui_cancel"):
-		get_tree().change_scene_to_file("res://main.tscn")
+#func _process(delta):
+#	if Input.is_action_just_pressed("ui_cancel"):
+#		get_tree().change_scene_to_file("res://main.tscn")
 
 
 func _on_map_list_item_clicked(index, at_position, mouse_button_index):
