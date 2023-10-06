@@ -1,0 +1,102 @@
+[gd_scene load_steps=6 format=3 uid="uid://cjge8ksxu7m40"]
+
+[ext_resource type="Script" path="res://internal/player/player.gd" id="1_udjgi"]
+[ext_resource type="Texture2D" uid="uid://2tatpk455kf4" path="res://assets/ui/arrow.png" id="2_csxr4"]
+[ext_resource type="Texture2D" uid="uid://bps3mitvl2ji1" path="res://assets/ui/crouch.png" id="3_temcf"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xx0av"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_anx4w"]
+radius = 0.519583
+height = 2.04952
+
+[node name="playerbase" type="CharacterBody3D"]
+script = ExtResource("1_udjgi")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_xx0av")
+
+[node name="playercol" type="Area3D" parent="."]
+
+[node name="playercolcol" type="CollisionShape3D" parent="playercol"]
+shape = SubResource("CapsuleShape3D_anx4w")
+
+[node name="Neck" type="Node3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="Neck"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.692235, 0)
+doppler_tracking = 2
+
+[node name="Control" type="Control" parent="Neck/Camera3D"]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="fpslabel" type="RichTextLabel" parent="Neck/Camera3D/Control"]
+layout_mode = 1
+offset_right = 80.0
+offset_bottom = 40.0
+text = "FPS"
+fit_content = true
+metadata/_edit_use_anchors_ = true
+
+[node name="mvmnt" type="Control" parent="Neck/Camera3D/Control"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -264.0
+offset_right = 264.0
+grow_vertical = 0
+pivot_offset = Vector2(0, 264)
+metadata/_edit_use_anchors_ = true
+
+[node name="ForwardButton" type="TouchScreenButton" parent="Neck/Camera3D/Control/mvmnt"]
+position = Vector2(88, 88)
+rotation = -1.5708
+scale = Vector2(0.17, 0.17)
+texture_normal = ExtResource("2_csxr4")
+action = "forward"
+visibility_mode = 1
+
+[node name="BackwardButton" type="TouchScreenButton" parent="Neck/Camera3D/Control/mvmnt"]
+position = Vector2(176, 176)
+rotation = 1.5708
+scale = Vector2(0.17, 0.17)
+texture_normal = ExtResource("2_csxr4")
+action = "back"
+visibility_mode = 1
+
+[node name="RightButton" type="TouchScreenButton" parent="Neck/Camera3D/Control/mvmnt"]
+position = Vector2(176, 88)
+scale = Vector2(0.17, 0.17)
+texture_normal = ExtResource("2_csxr4")
+action = "right"
+visibility_mode = 1
+
+[node name="LeftButton" type="TouchScreenButton" parent="Neck/Camera3D/Control/mvmnt"]
+position = Vector2(88, 176)
+rotation = 3.14159
+scale = Vector2(0.17, 0.17)
+texture_normal = ExtResource("2_csxr4")
+action = "left"
+visibility_mode = 1
+
+[node name="CrouchButton" type="TouchScreenButton" parent="Neck/Camera3D/Control/mvmnt"]
+position = Vector2(88, 88)
+scale = Vector2(0.17, 0.17)
+texture_normal = ExtResource("3_temcf")
+action = "crouch"
+visibility_mode = 1
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Neck/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.692235, 0)
+light_energy = 16.0
+spot_range = 42.3564
+spot_angle = 30.8605
