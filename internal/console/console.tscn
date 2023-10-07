@@ -16,7 +16,6 @@ font_size = 13
 
 [node name="console" type="Control"]
 process_mode = 3
-visible = false
 top_level = true
 z_index = 23
 layout_mode = 3
@@ -100,5 +99,44 @@ grow_vertical = 2
 placeholder_text = "type in console"
 flat = true
 script = ExtResource("2_pu37d")
+
+[node name="base2" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 252.0
+offset_top = 42.0
+offset_right = -613.0
+offset_bottom = -217.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.698039)
+
+[node name="title" type="Label" parent="base2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.002
+anchor_right = 1.0
+anchor_bottom = 0.059
+offset_left = -1.084
+offset_bottom = 0.0489979
+grow_horizontal = 2
+text = "Memory"
+label_settings = SubResource("LabelSettings_2mpvv")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="base2/title"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.945
+anchor_right = 1.0
+anchor_bottom = 0.857
+offset_left = -0.190002
+offset_bottom = 0.00499725
+text = "☒"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
