@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://cvjep32npf0nt"]
+
+[ext_resource type="Script" path="res://internal/scenechanger/scenechanger.gd" id="1_sbqef"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_c4sly"]
+font_size = 35
+shadow_size = 21
+shadow_color = Color(0, 0, 0, 0.67451)
+
+[node name="scenechanger" type="CanvasLayer"]
+script = ExtResource("1_sbqef")
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = -1
+anchor_left = 0.442
+anchor_top = 0.46
+anchor_right = 0.558
+anchor_bottom = 0.54
+offset_left = 0.315979
+offset_top = -0.0800171
+offset_right = -0.31604
+offset_bottom = 0.0799866
+grow_horizontal = 2
+grow_vertical = 2
+text = "Loading"
+label_settings = SubResource("LabelSettings_c4sly")
+horizontal_alignment = 1
+vertical_alignment = 1
