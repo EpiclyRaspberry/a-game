@@ -12,6 +12,7 @@ func change_scene(path):
 	
 func _process(delta):
 	status = ResourceLoader.load_threaded_get_status(pathinternal, progress)
+	$ColorRect/ProgressBar.value = progress[-1] * 100
 	if status == ResourceLoader.THREAD_LOAD_LOADED:
 		visible = false
 		get_tree().change_scene_to_packed(ResourceLoader.load_threaded_get(pathinternal	))

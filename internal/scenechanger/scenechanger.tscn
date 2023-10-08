@@ -1,28 +1,67 @@
-[gd_scene load_steps=3 format=3 uid="uid://cvjep32npf0nt"]
+[gd_scene load_steps=5 format=3 uid="uid://cvjep32npf0nt"]
 
 [ext_resource type="Script" path="res://internal/scenechanger/scenechanger.gd" id="1_sbqef"]
+[ext_resource type="FontFile" uid="uid://cfuge52dwvbk3" path="res://assets/fonts/Poppins-Regular.ttf" id="2_04sqk"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ltomy"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_c4sly"]
+font = ExtResource("2_04sqk")
 font_size = 35
-shadow_size = 21
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 16
 shadow_color = Color(0, 0, 0, 0.67451)
 
 [node name="scenechanger" type="CanvasLayer"]
+process_mode = 3
+visible = false
 script = ExtResource("1_sbqef")
 
-[node name="Label" type="Label" parent="."]
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_ltomy")
 anchors_preset = -1
-anchor_left = 0.442
-anchor_top = 0.46
-anchor_right = 0.558
-anchor_bottom = 0.54
-offset_left = 0.315979
-offset_top = -0.0800171
-offset_right = -0.31604
-offset_bottom = 0.0799866
+anchor_left = 0.346
+anchor_top = 0.373
+anchor_right = 0.654
+anchor_bottom = 0.627
+offset_left = 0.40799
+offset_top = 0.29599
+offset_right = -0.408081
+offset_bottom = -0.296021
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.380392, 0.380392, 0.380392, 0.780392)
+
+[node name="Label" type="Label" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.312
+anchor_top = 0.159
+anchor_right = 0.688
+anchor_bottom = 0.5
+offset_left = 0.0519943
+offset_top = -0.0760021
+offset_right = -0.052002
+offset_bottom = -4.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Loading"
 label_settings = SubResource("LabelSettings_c4sly")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.047
+anchor_top = 0.622
+anchor_right = 0.953
+anchor_bottom = 0.902
+offset_left = -0.138
+offset_top = -0.00800323
+offset_right = 0.13797
+offset_bottom = 0.071991
+grow_horizontal = 2
+grow_vertical = 2
+step = 10.0
+rounded = true
