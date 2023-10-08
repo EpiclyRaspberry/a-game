@@ -6,7 +6,7 @@
 [sub_resource type="LabelSettings" id="LabelSettings_eq2ec"]
 font_size = 100
 
-[node name="main" type="Control"]
+[node name="pausemenu" type="Control"]
 process_mode = 3
 visible = false
 z_index = 16
