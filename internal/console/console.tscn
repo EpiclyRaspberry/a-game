@@ -32,10 +32,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 547.0
-offset_top = 42.0
-offset_right = -63.0
-offset_bottom = -217.0
+offset_left = 598.0
+offset_top = 14.0
+offset_right = -12.0
+offset_bottom = -245.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.698039)
@@ -105,10 +105,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 252.0
-offset_top = 42.0
-offset_right = -613.0
-offset_bottom = -217.0
+offset_left = 303.0
+offset_top = 14.0
+offset_right = -562.0
+offset_bottom = -245.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.698039)
@@ -122,7 +122,7 @@ anchor_bottom = 0.059
 offset_left = -1.084
 offset_bottom = 0.0489979
 grow_horizontal = 2
-text = "Memory"
+text = "Infomation"
 label_settings = SubResource("LabelSettings_2mpvv")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -138,5 +138,41 @@ offset_bottom = 0.00499725
 text = "☒"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="base2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.113
+anchor_right = 1.0
+anchor_bottom = 0.997
+offset_top = 0.0429993
+offset_right = -1.0
+offset_bottom = 0.166992
+
+[node name="VBoxContainer" type="VBoxContainer" parent="base2/ScrollContainer"]
+layout_mode = 2
+
+[node name="peakram" type="Label" parent="base2/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "peak ram usage:
+"
+
+[node name="currentram" type="Label" parent="base2/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "current ram usage:
+"
+
+[node name="godotversion" type="Label" parent="base2/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "godot version:"
+
+[node name="processid" type="Label" parent="base2/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "process id:"
+
+[node name="peakram5" type="Label" parent="base2/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "currently running on:
+"
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
