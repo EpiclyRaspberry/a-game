@@ -14,7 +14,6 @@ shadow_color = Color(0, 0, 0, 0.67451)
 
 [node name="scenechanger" type="CanvasLayer"]
 process_mode = 3
-visible = false
 script = ExtResource("1_sbqef")
 
 [node name="ColorRect" type="ColorRect" parent="."]
