@@ -20,10 +20,10 @@ func _process(delta):
 		)
 
 func logconsole(thing):
-	$base/ScrollContainer/VBoxContainer.printer(thing)
+	$CanvasLayer/base/ScrollContainer/VBoxContainer.printer(thing)
 
 func toggleconsolevisible():
-		if visible == false:
-			visible = true
+		if $CanvasLayer.visible == false:
+			$CanvasLayer.visible = true
 		else:
-			visible = false
+			$CanvasLayer.visible = false

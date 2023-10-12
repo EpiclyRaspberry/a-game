@@ -28,8 +28,9 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("5_ne7sx")
 
-[node name="base" type="ColorRect" parent="."]
-layout_mode = 1
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="base" type="ColorRect" parent="CanvasLayer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -41,7 +42,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.698039)
 
-[node name="title" type="Label" parent="base"]
+[node name="title" type="Label" parent="CanvasLayer/base"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.002
@@ -55,7 +56,7 @@ label_settings = SubResource("LabelSettings_2mpvv")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label" type="Label" parent="base/title"]
+[node name="Label" type="Label" parent="CanvasLayer/base/title"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.945
@@ -67,7 +68,7 @@ text = "☒"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ScrollContainer" type="ScrollContainer" parent="base"]
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/base"]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.082
@@ -78,15 +79,15 @@ offset_right = 0.167969
 offset_bottom = 0.00997925
 follow_focus = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="base/ScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/base/ScrollContainer"]
 layout_mode = 2
 script = ExtResource("5_a0vd4")
 
-[node name="text" type="Label" parent="base/ScrollContainer/VBoxContainer"]
+[node name="text" type="Label" parent="CanvasLayer/base/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 label_settings = SubResource("LabelSettings_0iox1")
 
-[node name="typethingy" type="LineEdit" parent="base"]
+[node name="typethingy" type="LineEdit" parent="CanvasLayer/base"]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.92
@@ -101,8 +102,7 @@ placeholder_text = "type in console"
 flat = true
 script = ExtResource("2_pu37d")
 
-[node name="base2" type="ColorRect" parent="."]
-layout_mode = 1
+[node name="base2" type="ColorRect" parent="CanvasLayer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -114,7 +114,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.698039)
 
-[node name="title" type="Label" parent="base2"]
+[node name="title" type="Label" parent="CanvasLayer/base2"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.002
@@ -128,7 +128,7 @@ label_settings = SubResource("LabelSettings_2mpvv")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label" type="Label" parent="base2/title"]
+[node name="Label" type="Label" parent="CanvasLayer/base2/title"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.945
@@ -140,7 +140,7 @@ text = "☒"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ScrollContainer" type="ScrollContainer" parent="base2"]
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/base2"]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.113
@@ -150,30 +150,28 @@ offset_top = 0.0429993
 offset_right = -1.0
 offset_bottom = 0.166992
 
-[node name="VBoxContainer" type="VBoxContainer" parent="base2/ScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/base2/ScrollContainer"]
 layout_mode = 2
 
-[node name="peakram" type="Label" parent="base2/ScrollContainer/VBoxContainer"]
+[node name="peakram" type="Label" parent="CanvasLayer/base2/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 text = "peak ram usage:
 "
 
-[node name="currentram" type="Label" parent="base2/ScrollContainer/VBoxContainer"]
+[node name="currentram" type="Label" parent="CanvasLayer/base2/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 text = "current ram usage:
 "
 
-[node name="godotversion" type="Label" parent="base2/ScrollContainer/VBoxContainer"]
+[node name="godotversion" type="Label" parent="CanvasLayer/base2/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 text = "godot version:"
 
-[node name="processid" type="Label" parent="base2/ScrollContainer/VBoxContainer"]
+[node name="processid" type="Label" parent="CanvasLayer/base2/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 text = "process id:"
 
-[node name="peakram5" type="Label" parent="base2/ScrollContainer/VBoxContainer"]
+[node name="peakram5" type="Label" parent="CanvasLayer/base2/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 text = "currently running on:
 "
-
-[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

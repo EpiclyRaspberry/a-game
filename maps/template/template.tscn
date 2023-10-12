@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cjge8ksxu7m40" path="res://internal/player/playerbase.tscn" id="1_twejo"]
 
 [node name="template" type="Node3D"]
+process_mode = 4
 
 [node name="playerbase" parent="." instance=ExtResource("1_twejo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.22661, 0)

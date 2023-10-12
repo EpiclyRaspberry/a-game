@@ -11,6 +11,7 @@ radius = 0.519583
 height = 2.04952
 
 [node name="playerbase" type="CharacterBody3D"]
+input_ray_pickable = false
 script = ExtResource("1_udjgi")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

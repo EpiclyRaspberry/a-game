@@ -8,7 +8,6 @@ font_size = 100
 
 [node name="main" type="Control"]
 process_mode = 3
-visible = false
 z_index = 16
 layout_mode = 3
 anchors_preset = 15
@@ -18,8 +17,10 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_rsxfe")
 
-[node name="blur" type="ColorRect" parent="."]
-layout_mode = 1
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="blur" type="ColorRect" parent="CanvasLayer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -27,8 +28,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.380392, 0.380392, 0.380392, 0.639216)
 
-[node name="title" type="Label" parent="."]
-layout_mode = 1
+[node name="title" type="Label" parent="CanvasLayer"]
 anchors_preset = -1
 anchor_left = 0.029
 anchor_top = 0.045
@@ -36,13 +36,12 @@ anchor_right = 0.339
 anchor_bottom = 0.261
 offset_left = -0.408001
 offset_top = -4.16
-offset_right = 0.471985
+offset_right = 0.472015
 offset_bottom = -4.12801
 text = "a-game"
 label_settings = SubResource("LabelSettings_eq2ec")
 
-[node name="Button" type="Button" parent="."]
-layout_mode = 1
+[node name="Button" type="Button" parent="CanvasLayer"]
 anchors_preset = -1
 anchor_left = 0.035
 anchor_top = 0.312
@@ -54,8 +53,7 @@ offset_right = 0.111969
 offset_bottom = -5.936
 text = "Resume"
 
-[node name="loadgamebutton" type="Button" parent="."]
-layout_mode = 1
+[node name="loadgamebutton" type="Button" parent="CanvasLayer"]
 anchors_preset = -1
 anchor_left = 0.035
 anchor_top = 0.481
@@ -67,8 +65,7 @@ offset_right = 0.263977
 offset_bottom = -4.15204
 text = "Load Game"
 
-[node name="Button3" type="Button" parent="."]
-layout_mode = 1
+[node name="Button3" type="Button" parent="CanvasLayer"]
 anchors_preset = -1
 anchor_left = 0.034
 anchor_top = 0.653
@@ -80,8 +77,7 @@ offset_right = 0.111969
 offset_bottom = -3.96002
 text = "Settings"
 
-[node name="Button4" type="Button" parent="."]
-layout_mode = 1
+[node name="Button4" type="Button" parent="CanvasLayer"]
 anchors_preset = -1
 anchor_left = 0.033
 anchor_top = 0.823
@@ -93,11 +89,10 @@ offset_right = 0.263977
 offset_bottom = -4.12006
 text = "Quit"
 
-[node name="mapselector" parent="." instance=ExtResource("2_l5kkk")]
+[node name="mapselector" parent="CanvasLayer" instance=ExtResource("2_l5kkk")]
 visible = false
-layout_mode = 1
 
-[node name="loadmapclose" type="Button" parent="mapselector"]
+[node name="loadmapclose" type="Button" parent="CanvasLayer/mapselector"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.944
@@ -110,5 +105,5 @@ offset_right = -0.504028
 offset_bottom = 3.808
 text = "X"
 
-[connection signal="pressed" from="loadgamebutton" to="." method="_on_loadgamebutton_pressed"]
-[connection signal="pressed" from="mapselector/loadmapclose" to="." method="_on_loadmapclose_pressed"]
+[connection signal="pressed" from="CanvasLayer/loadgamebutton" to="." method="_on_loadgamebutton_pressed"]
+[connection signal="pressed" from="CanvasLayer/mapselector/loadmapclose" to="." method="_on_loadmapclose_pressed"]
