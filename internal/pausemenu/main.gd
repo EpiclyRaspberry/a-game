@@ -1,7 +1,7 @@
 extends Control
 
 var loadgame = false
-var notallowed = ["/root/Control", "/root/mapselector"]
+var notallowed = ["/root/MainMenu", "/root/mapselector"]
 
 func _process(delta):
 #	get_tree().get_current_scene().mouse_filter = Control.MOUSE_FILTER_IGNORE

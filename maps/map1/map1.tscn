@@ -1,11 +1,20 @@
-[gd_scene load_steps=2 format=3 uid="uid://8q25p8m0q01e"]
+[gd_scene load_steps=4 format=3 uid="uid://8q25p8m0q01e"]
 
-[ext_resource type="Script" path="res://internal/defaultmapscript.gd" id="1_6r1sh"]
+[ext_resource type="PackedScene" uid="uid://dpes31q3uftku" path="res://internal/zplayer/zplayer.tscn" id="1_568mr"]
 
-[node name="map1" type="Node2D"]
-script = ExtResource("1_6r1sh")
+[sub_resource type="BoxShape3D" id="BoxShape3D_sfk2t"]
 
-[node name="Label" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
-text = "gulpgulpgulp"
+[sub_resource type="BoxMesh" id="BoxMesh_evdev"]
+
+[node name="map1" type="Node3D"]
+
+[node name="zplayer" parent="." instance=ExtResource("1_568mr")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(20.5233, 0, 0, 0, 0.372482, 0, 0, 0, 14.8309, 0, -1.58351, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_sfk2t")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("BoxMesh_evdev")

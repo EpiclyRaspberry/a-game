@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://dpes31q3uftku"]
+
+[ext_resource type="Script" path="res://internal/zplayer/zplayer.gd" id="1_0xc15"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u04v0"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1nhnq"]
+
+[node name="zplayer" type="CharacterBody3D"]
+script = ExtResource("1_0xc15")
+
+[node name="zplayercol" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_u04v0")
+
+[node name="zplayertrigger" type="Area3D" parent="."]
+
+[node name="zplayertriggercol" type="CollisionShape3D" parent="zplayertrigger"]
+transform = Transform3D(1.02604, 0, 0, 0, 1.02604, 0, 0, 0, 1.02604, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_1nhnq")
+
+[node name="zplayerneck" type="Node3D" parent="."]
+
+[node name="zplayercam" type="Camera3D" parent="zplayerneck"]

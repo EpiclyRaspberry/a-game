@@ -10,5 +10,5 @@ func _process(delta):
 	
 
 func _on_play_button_pressed():
-	Scenechanger.change_scene("res://maps/template/template.tscn")
+	Scenechanger.change_scene("res://maps/mapselector.tscn")
 	
