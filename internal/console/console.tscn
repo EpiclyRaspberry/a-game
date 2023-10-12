@@ -29,6 +29,7 @@ mouse_filter = 2
 script = ExtResource("5_ne7sx")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="base" type="ColorRect" parent="CanvasLayer"]
 anchors_preset = 15
