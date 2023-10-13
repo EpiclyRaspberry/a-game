@@ -21,6 +21,7 @@ PauseMenu="*res://internal/pausemenu/main.tscn"
 Console="*res://internal/console/console.tscn"
 Scenechanger="*res://internal/scenechanger/scenechanger.tscn"
 Gvars="*res://internal/variable/gvars.tscn"
+Indicator="*res://internal/indicator/indicator.tscn"
 
 [input]
 

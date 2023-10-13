@@ -1,0 +1,102 @@
+[gd_scene load_steps=5 format=3 uid="uid://bekauksakguwt"]
+
+[ext_resource type="Shader" path="res://assets/shader/blur.gdshader" id="1_rm41k"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5p83d"]
+shader = ExtResource("1_rm41k")
+shader_parameter/amount = 1.292
+
+[sub_resource type="Theme" id="Theme_cx6i2"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_vhdub"]
+font_size = 50
+
+[node name="setting" type="CanvasLayer"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_5p83d")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="base" type="ColorRect" parent="."]
+anchors_preset = -1
+anchor_left = 0.077
+anchor_top = 0.079
+anchor_right = 0.923
+anchor_bottom = 0.921
+offset_left = 0.29599
+offset_top = -0.192001
+offset_right = -0.296021
+offset_bottom = 0.191956
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.564706, 0.564706, 0.564706, 0.341176)
+
+[node name="topbar" type="ColorRect" parent="base"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.075
+offset_bottom = 0.0500031
+color = Color(0.654902, 0.654902, 0.654902, 1)
+
+[node name="ScrollContainer" type="ScrollContainer" parent="base/topbar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="base/topbar/ScrollContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="gameplay" type="Button" parent="base/topbar/ScrollContainer/HBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_cx6i2")
+text = "Gameplay"
+flat = true
+
+[node name="audio" type="Button" parent="base/topbar/ScrollContainer/HBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_cx6i2")
+text = "Audio"
+flat = true
+
+[node name="video" type="Button" parent="base/topbar/ScrollContainer/HBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_cx6i2")
+text = "Video"
+flat = true
+
+[node name="accessibility" type="Button" parent="base/topbar/ScrollContainer/HBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_cx6i2")
+text = "Accessibility"
+flat = true
+
+[node name="ScrollContainer" type="ScrollContainer" parent="base"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.075
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 0.0500031
+offset_bottom = 6.10352e-05
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="base/ScrollContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="base/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Gameplay"
+label_settings = SubResource("LabelSettings_vhdub")
+horizontal_alignment = 1
+vertical_alignment = 1

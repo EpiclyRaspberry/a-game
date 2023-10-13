@@ -16,7 +16,6 @@ font_size = 13
 
 [node name="console" type="Control"]
 process_mode = 3
-visible = false
 top_level = true
 z_index = 23
 layout_mode = 3
@@ -32,13 +31,15 @@ script = ExtResource("5_ne7sx")
 visible = false
 
 [node name="base" type="ColorRect" parent="CanvasLayer"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 598.0
-offset_top = 14.0
-offset_right = -12.0
-offset_bottom = -245.0
+anchors_preset = -1
+anchor_left = 0.519
+anchor_top = 0.022
+anchor_right = 0.99
+anchor_bottom = 0.622
+offset_left = 0.111938
+offset_top = -0.256001
+offset_right = -0.480103
+offset_bottom = -0.0560303
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.698039)
@@ -104,13 +105,15 @@ flat = true
 script = ExtResource("2_pu37d")
 
 [node name="base2" type="ColorRect" parent="CanvasLayer"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 303.0
-offset_top = 14.0
-offset_right = -562.0
-offset_bottom = -245.0
+anchors_preset = -1
+anchor_left = 0.263
+anchor_top = 0.022
+anchor_right = 0.512
+anchor_bottom = 0.622
+offset_left = 0.0239868
+offset_top = -0.256001
+offset_right = 0.175964
+offset_bottom = -0.0560303
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.698039)

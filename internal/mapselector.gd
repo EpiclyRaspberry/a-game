@@ -21,7 +21,7 @@ func _ready():
 func _process(delta):
 	if not "PauseMenu" in get_node("/root/Gvars").names(str(get_tree().get_current_scene().get_path())):
 		if Input.is_action_just_pressed("ui_cancel"):
-			get_tree().change_scene_to_file("res://main.tscn")
+			visible = false
 
 
 func _on_map_list_item_clicked(index, at_position, mouse_button_index):
