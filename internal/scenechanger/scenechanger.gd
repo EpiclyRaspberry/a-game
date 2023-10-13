@@ -15,4 +15,4 @@ func _process(delta):
 	$ColorRect/ProgressBar.value = progress[-1] * 100
 	if status == ResourceLoader.THREAD_LOAD_LOADED:
 		visible = false
-		get_tree().change_scene_to_packed(ResourceLoader.load_threaded_get(pathinternal	))
+		get_tree().change_scene_to_packed(ResourceLoader.load_threaded_get(pathinternal))
