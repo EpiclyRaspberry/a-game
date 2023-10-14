@@ -19,3 +19,7 @@ func _on_play_button_pressed():
 
 func _on_crash_pressed():
 	Gv.crashcomputer()
+
+
+func _on_notification_pressed():
+	Notification.send("shoutout", "shoutout to amazer")

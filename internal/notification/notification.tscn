@@ -1,0 +1,108 @@
+[gd_scene load_steps=6 format=3 uid="uid://fa0xdt2qkku1"]
+
+[ext_resource type="Script" path="res://internal/notification/notification.gd" id="1_x3xeh"]
+
+[sub_resource type="Animation" id="Animation_jsapt"]
+resource_name = "fadein"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.148651, 0.148651),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_7vkhh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
+}
+
+[sub_resource type="Animation" id="Animation_jtltj"]
+resource_name = "fadeout"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.148651, 0.148651),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1e-05, 1e-05)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_stvsw"]
+_data = {
+"RESET": SubResource("Animation_7vkhh"),
+"fadein": SubResource("Animation_jsapt"),
+"fadeout": SubResource("Animation_jtltj")
+}
+
+[node name="notification" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_x3xeh")
+
+[node name="base" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -373.12
+offset_right = -1.12134
+offset_bottom = 151.0
+grow_horizontal = 0
+scale = Vector2(1e-05, 1e-05)
+pivot_offset = Vector2(371, 0)
+color = Color(0, 0, 0, 0.568627)
+
+[node name="title" type="Label" parent="base"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -187.0
+offset_right = 187.0
+offset_bottom = 26.0
+grow_horizontal = 2
+text = "Template"
+horizontal_alignment = 1
+
+[node name="content" type="Label" parent="base"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -371.999
+offset_top = 30.0
+offset_right = 0.00134277
+offset_bottom = 150.0
+grow_horizontal = 0
+text = "Template"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="base"]
+autoplay = "fadein"
+libraries = {
+"": SubResource("AnimationLibrary_stvsw")
+}
