@@ -8,7 +8,7 @@ func send(title, content, colormode):
 	add_child(dup)
 	dup.get_node("title").text = title
 	dup.get_node("content").text = content
-	dup.pivot_offset.x = dup.size.x / 2
+	dup.pivot_offset.x = dup.size.x
 	dup.pivot_offset.y = dup.size.y / 2
 	
 	if colormode == "chroma":
@@ -30,6 +30,10 @@ func _process(delta):
 		if (Time.get_unix_time_from_system() - i[1]) > 2:
 			currentnoti.erase(i)
 			if not instance_from_id(i[2]) == null:
+				
+				instance_from_id(i[2]).pivot_offset.x = instance_from_id(i[2]).size.x / 2
+				instance_from_id(i[2]).pivot_offset.y = instance_from_id(i[2]).size.y / 2
+				
 				instance_from_id(i[2]).get_node("AnimationPlayer").play("fadeout")
 				if instance_from_id(i[2]).get_node("AnimationPlayer").is_playing() == false:
 					instance_from_id(i[2]).queue_free()
@@ -38,6 +42,10 @@ func _process(delta):
 			var temp = currentnoti[0]
 			currentnoti.erase(currentnoti[0])
 			if not instance_from_id(temp[2]) == null:
+				
+				instance_from_id(i[2]).pivot_offset.x = instance_from_id(i[2]).size.x / 2
+				instance_from_id(i[2]).pivot_offset.y = instance_from_id(i[2]).size.y / 2
+				
 				instance_from_id(temp[2]).get_node("AnimationPlayer").play("fadeout")
 				if instance_from_id(temp[2]).get_node("AnimationPlayer").is_playing() == false:
 					instance_from_id(temp[2]).queue_free()

@@ -3,7 +3,8 @@ extends Node
 var activenoti = []
 
 func _ready():
-	Notification.send("test", "this is a test", "chroma")
+	if OS.is_debug_build():
+		Notification.send("Welcome", "Welcome to the debug build", "chroma")
 
 func crashcomputer(): #this can be used to troll hacker or something
 	while true:
