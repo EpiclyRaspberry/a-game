@@ -2,6 +2,9 @@ extends Node
 
 var activenoti = []
 
+func _ready():
+	Notification.send("test", "this is a test", "chroma")
+
 func crashcomputer(): #this can be used to troll hacker or something
 	while true:
 		OS.create_instance(PackedStringArray(["res://internal/globalvar/bomb/bomb.tscn"]))

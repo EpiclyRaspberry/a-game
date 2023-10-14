@@ -22,4 +22,5 @@ func _on_crash_pressed():
 
 
 func _on_notification_pressed():
-	Notification.send("shoutout", "shoutout to amazer")
+	Notification.send("shoutout", "amazer but normal", "normal")
+	Notification.send("shoutout", "amazer but rgb", "chroma")

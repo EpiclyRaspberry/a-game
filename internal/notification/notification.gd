@@ -2,12 +2,20 @@ extends Control
 
 var currentnoti = []
 
-func send(title, content):
+
+func send(title, content, colormode):
 	var dup = get_node("base").duplicate()
 	add_child(dup)
 	dup.get_node("title").text = title
 	dup.get_node("content").text = content
+	dup.pivot_offset.x = dup.size.x / 2
+	dup.pivot_offset.y = dup.size.y / 2
 	
+	if colormode == "chroma":
+		dup.chroma = true
+	elif colormode == "normal":
+		pass
+
 	if len(currentnoti) < 1:
 		pass
 	else:
