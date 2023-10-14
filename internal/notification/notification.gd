@@ -26,7 +26,7 @@ func _process(delta):
 				if instance_from_id(i[2]).get_node("AnimationPlayer").is_playing() == false:
 					instance_from_id(i[2]).queue_free()
 					
-		if i[0] + $base.size.y > get_viewport().size.y / 1.5:
+		if i[0] + $base.size.y > get_viewport().size.y:
 			var temp = currentnoti[0]
 			currentnoti.erase(currentnoti[0])
 			if not instance_from_id(temp[2]) == null:
