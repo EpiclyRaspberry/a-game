@@ -25,6 +25,7 @@ Gvars="*res://internal/variable/gvars.tscn"
 Indicator="*res://internal/indicator/indicator.tscn"
 Gv="*res://internal/globalvar/gv.tscn"
 Notification="*res://internal/notification/notification.tscn"
+Intro="*res://assets/logo/intro.tscn"
 
 [input]
 

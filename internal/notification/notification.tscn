@@ -78,6 +78,19 @@ scale = Vector2(1e-05, 1e-05)
 color = Color(0, 0, 0, 0.568627)
 script = ExtResource("2_5wv34")
 
+[node name="ColorRect" type="ColorRect" parent="base"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.076
+anchor_right = 0.5
+anchor_bottom = 0.076
+offset_left = -185.999
+offset_top = -11.476
+offset_right = 187.001
+offset_bottom = 11.524
+color = Color(0, 0, 0, 1)
+
 [node name="title" type="Label" parent="base"]
 layout_mode = 1
 anchors_preset = 5
