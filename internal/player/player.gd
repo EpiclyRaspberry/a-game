@@ -9,8 +9,6 @@ var DECCELERATION = 0.00001
 var direction
 var input_dir
 
-
-# Get the gravity from the project settings to be synced with RigidDynamicBody nodes.
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 @onready var neck := $Neck
@@ -33,7 +31,6 @@ var cameratilt_speed = 10
 
 func _ready():
 	pass
-#	
 #	const HALFPI = PI/2
 #	for i in range(ZTILTSMOOTHNESS):
 #		#change the inside to change the interpolation you want
@@ -80,28 +77,17 @@ func _physics_process(delta: float) -> void:
 		else:
 			$CollisionShape3D.scale.y =  0.5
 			crouching = true
-		
-
-	
 
 	input_dir = Input.get_vector("left", "right", "forward", "back")
 	direction = (neck.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 
 	neck.rotation.z = lerp(neck.rotation.z, deg_to_rad(clamp(input_dir.x * 1.5, -5, 5)), delta * cameratilt_speed)
-	
-	#if neckie < 1 and neckie > -1:
-	#	neckie += input_dir.x / 10
-	
-	# code purpusely to make the camera smooth but i failed
-	
-	#print(isgrounded)
 #
 #	print(neck.rotation.z) # quake camera 
 #	neck.rotation.z = (rotation.z + (input_dir.x / 10))
 	
 	#smoother attemp using sine wave
-	
-	# Handle Jump.
+
 	if Input.is_action_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 		if velocity.z > 0 and Input.is_action_pressed("crouch"):
@@ -150,8 +136,6 @@ func _physics_process(delta: float) -> void:
 		can_abh = true
 	else:
 		can_abh = false
-	
-var zci = 0
 #func zcameratilt():
 #	if input_dir.x:
 #		if zci < ZTILTSMOOTHNESS-1:
