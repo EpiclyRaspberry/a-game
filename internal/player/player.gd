@@ -8,6 +8,8 @@ var ACCERATION = 0
 var DECCELERATION = 0.00001
 var direction
 var input_dir
+
+
 # Get the gravity from the project settings to be synced with RigidDynamicBody nodes.
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 
@@ -18,6 +20,10 @@ var isgrounded: bool = false
 var can_abh: bool = false
 const HALFPI = PI/2
 var crouching = false
+
+var is_zoomed = false
+var camerasensnerf = 1
+
 ##camera stuffs
 #var zcamtimer = Timer.new()
 #const ZTILTSMOOTHNESS = 20
@@ -50,13 +56,23 @@ func _unhandled_input(event: InputEvent) -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		if event is InputEventMouseMotion:
-			neck.rotate_y(-event.relative.x * 0.01)
-			camera.rotate_x(-event.relative.y * 0.01) 
+			neck.rotate_y(-event.relative.x * 0.01 * camerasensnerf)
+			camera.rotate_x(-event.relative.y * 0.01 * camerasensnerf) 
 			camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-90), deg_to_rad(90))
 			
 func _physics_process(delta: float) -> void:
 	
+	if Input.is_action_just_pressed("scroll-in"):
+		camerasensnerf = 0.01
+		is_zoomed = true
+	if Input.is_action_just_pressed("scroll-out"):
+		camerasensnerf = 1
+		is_zoomed = false
 	
+	if is_zoomed:
+		$Neck/Camera3D.fov = int(lerp($Neck/Camera3D.fov, 20.0, delta * 5))
+	else:
+		$Neck/Camera3D.fov = int(lerp($Neck/Camera3D.fov, 75.0, delta * 5))
 	
 	# Add the gravity.
 	if not is_on_floor():

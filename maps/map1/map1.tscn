@@ -1,14 +1,12 @@
 [gd_scene load_steps=4 format=3 uid="uid://8q25p8m0q01e"]
 
-[ext_resource type="PackedScene" uid="uid://dpes31q3uftku" path="res://internal/zplayer/zplayer.tscn" id="1_568mr"]
+[ext_resource type="PackedScene" uid="uid://cjge8ksxu7m40" path="res://internal/player/playerbase.tscn" id="2_pccs4"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sfk2t"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_evdev"]
 
 [node name="map1" type="Node3D"]
-
-[node name="zplayer" parent="." instance=ExtResource("1_568mr")]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 transform = Transform3D(20.5233, 0, 0, 0, 0.372482, 0, 0, 0, 14.8309, 0, -1.58351, 0)
@@ -18,3 +16,5 @@ shape = SubResource("BoxShape3D_sfk2t")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
 mesh = SubResource("BoxMesh_evdev")
+
+[node name="playerbase" parent="." instance=ExtResource("2_pccs4")]
