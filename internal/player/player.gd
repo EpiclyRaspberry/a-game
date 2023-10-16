@@ -69,11 +69,6 @@ func _physics_process(delta: float) -> void:
 		camerasensnerf = 1
 		is_zoomed = false
 	
-	if is_zoomed:
-		$Neck/Camera3D.fov = int(lerp($Neck/Camera3D.fov, 20.0, delta * 5))
-	else:
-		$Neck/Camera3D.fov = int(lerp($Neck/Camera3D.fov, 75.0, delta * 5))
-	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y -= gravity * delta
@@ -114,7 +109,7 @@ func _physics_process(delta: float) -> void:
 	
 	if direction: 
 		if ACCERATION < 1.05:
-			ACCERATION 		+= 0.05
+			ACCERATION += 0.05
 		#print(direction)
 		velocity.x = direction.x * SPEED * ACCERATION
 		velocity.z = direction.z * SPEED * ACCERATION
@@ -122,25 +117,40 @@ func _physics_process(delta: float) -> void:
 		if can_abh:
 			velocity.x = velocity.x*-1.05
 			velocity.z = velocity.z*-1.05
-		else: if isgrounded:
+		else: if is_on_floor():
 			velocity.x = velocity.x/1.05
 			velocity.z = velocity.z/1.05
 		
-		if ACCERATION > 0 and not isgrounded:
+		if ACCERATION > 0 and not is_on_floor():
 			ACCERATION -= 0.05
-		elif ACCERATION > 0 and isgrounded:
+		elif ACCERATION > 0 and is_on_floor():
 			ACCERATION -= .4
+		elif ACCERATION < 0:
+			ACCERATION = 0
+			
+	print(ACCERATION)
 #		var vec = rotate_vec(Vector2(ACCERATION,0),neck.rotation_degrees.y)
 #		print(vec)
 #		velocity = velocity - Vector3(-vec.x,0,-vec.y)
 #		print(velocity)
 #		if ACCERATION > 0:
 #			ACCERATION -= 0.075
-			
+
+#	$Neck/Camera3D.fov = int(lerp(75.0, $Neck/Camera3D.fov * ACCERATION * 2, delta * 3))
 	
+	
+	if is_zoomed:
+		$Neck/Camera3D.fov = int(lerp($Neck/Camera3D.fov, 20.0, delta * 5))
+	else:
+		$Neck/Camera3D.fov = int(lerp($Neck/Camera3D.fov, 75.0, delta * 5))
 
 	move_and_slide()
-
+	
+	if is_on_floor() and Input.is_action_pressed("ui_accept") and Input.is_action_pressed("crouch") and not Input.is_action_pressed("back"):
+		can_abh = true
+	else:
+		can_abh = false
+	
 var zci = 0
 #func zcameratilt():
 #	if input_dir.x:
@@ -156,19 +166,3 @@ var zci = 0
 #		#elif zci < 0: zci += 1
 #	neck.rotation.z = (ztiltlist1[zci]*input_dir.x)/ZTILTSMOOTHNESS
 	
-
-
-func _on_playercol_body_entered(body):
-	if body.name == "ground":
-		isgrounded = true
-		if Input.is_action_pressed("ui_accept") and Input.is_action_pressed("crouch") and not Input.is_action_pressed("back"):
-			can_abh = true
-		else: can_abh = false
-	pass # Replace with function body.
-
-
-
-func _on_playercol_body_exited(body):
-	if body.name == "ground":
-		isgrounded = false
-	pass # Replace with function body.
