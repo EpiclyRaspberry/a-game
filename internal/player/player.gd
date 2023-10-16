@@ -1,6 +1,5 @@
 extends CharacterBody3D
 
-
 const SPEED = 5
 const JUMP_VELOCITY = 4.5
 
@@ -56,8 +55,16 @@ func _unhandled_input(event: InputEvent) -> void:
 			neck.rotate_y(-event.relative.x * 0.01 * camerasensnerf)
 			camera.rotate_x(-event.relative.y * 0.01 * camerasensnerf) 
 			camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-90), deg_to_rad(90))
+	
 			
 func _physics_process(delta: float) -> void:
+	
+	#controller support
+	var controller_input_dir = Input.get_vector("look-left", "look-right", "look-up", "look-down")
+	neck.rotate_y(-controller_input_dir.x * 0.1 * camerasensnerf)
+	camera.rotate_x(-controller_input_dir.y * 0.1 * camerasensnerf) 
+	camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-90), deg_to_rad(90))
+	#end
 	
 	if Input.is_action_just_pressed("scroll-in"):
 		camerasensnerf = 0.01
@@ -88,8 +95,9 @@ func _physics_process(delta: float) -> void:
 	
 	#smoother attemp using sine wave
 
-	if Input.is_action_pressed("ui_accept") and is_on_floor():
+	if Input.is_action_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+		
 		if velocity.z > 0 and Input.is_action_pressed("crouch"):
 			ACCERATION = ACCERATION*1.3
 	
@@ -113,8 +121,7 @@ func _physics_process(delta: float) -> void:
 			ACCERATION -= .4
 		elif ACCERATION < 0:
 			ACCERATION = 0
-			
-	print(ACCERATION)
+				
 #		var vec = rotate_vec(Vector2(ACCERATION,0),neck.rotation_degrees.y)
 #		print(vec)
 #		velocity = velocity - Vector3(-vec.x,0,-vec.y)
