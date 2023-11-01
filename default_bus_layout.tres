@@ -1,9 +1,16 @@
-[gd_resource type="AudioBusLayout" load_steps=2 format=3 uid="uid://v67uuxoglm8y"]
+[gd_resource type="AudioBusLayout" load_steps=3 format=3 uid="uid://v67uuxoglm8y"]
 
 [sub_resource type="AudioEffectLowPassFilter" id="AudioEffectLowPassFilter_xm1oc"]
 resource_name = "LowPassFilter"
+cutoff_hz = 20500.0
+resonance = 1.0
 db = 1
+
+[sub_resource type="AudioEffectPitchShift" id="AudioEffectPitchShift_bi3bi"]
+resource_name = "PitchShift"
 
 [resource]
 bus/0/effect/0/effect = SubResource("AudioEffectLowPassFilter_xm1oc")
-bus/0/effect/0/enabled = false
+bus/0/effect/0/enabled = true
+bus/0/effect/1/effect = SubResource("AudioEffectPitchShift_bi3bi")
+bus/0/effect/1/enabled = false

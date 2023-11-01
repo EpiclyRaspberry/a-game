@@ -1,8 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://du6otsitr4ryg"]
+[gd_scene load_steps=7 format=3 uid="uid://du6otsitr4ryg"]
 
 [ext_resource type="Script" path="res://internal/pausemenu/main.gd" id="1_rsxfe"]
 [ext_resource type="PackedScene" uid="uid://b1n7afr0tykjh" path="res://maps/mapselector.tscn" id="2_l5kkk"]
+[ext_resource type="Shader" path="res://internal/pausemenu/main.gdshader" id="2_xoe16"]
 [ext_resource type="PackedScene" uid="uid://bekauksakguwt" path="res://internal/setting/setting.tscn" id="3_cf4qq"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tdvs8"]
+shader = ExtResource("2_xoe16")
+shader_parameter/range = 0.1
+shader_parameter/noiseQuality = 250.0
+shader_parameter/noiseIntensity = 0.0088
+shader_parameter/offsetIntensity = 0.03
+shader_parameter/colorOffsetIntensity = 1.3
 
 [sub_resource type="LabelSettings" id="LabelSettings_eq2ec"]
 font_size = 100
@@ -22,12 +31,13 @@ script = ExtResource("1_rsxfe")
 visible = false
 
 [node name="blur" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_tdvs8")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.380392, 0.380392, 0.380392, 0.639216)
+color = Color(1, 1, 1, 0)
 
 [node name="title" type="Label" parent="CanvasLayer"]
 anchors_preset = -1

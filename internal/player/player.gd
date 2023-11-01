@@ -104,7 +104,6 @@ func _physics_process(delta: float) -> void:
 	if direction: 
 		if ACCERATION < 1.05:
 			ACCERATION += 0.05
-		#print(direction)
 		velocity.x = direction.x * SPEED * ACCERATION
 		velocity.z = direction.z * SPEED * ACCERATION
 	else:
