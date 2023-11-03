@@ -1,5 +1,8 @@
 extends Node
 
+func _ready():
+	Console.logconsole("[LIBRARY LOADED] %s" % name)
+
 func parse(path):
 	var parsed = []
 	var file = FileAccess.open(path, FileAccess.READ)
@@ -9,7 +12,6 @@ func parse(path):
 	return parsed
 	
 	# returns an array
-
 	
 func parse_only_timestamp_and_lyric(path):
 	var parsed = []

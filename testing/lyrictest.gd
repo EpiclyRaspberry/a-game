@@ -4,7 +4,9 @@ var counter = 0
 var lyrics = Library.get_node("lrc_parser").parse_only_timestamp_and_lyric_minus_last_timestamp("res://assets/music/lyrics/heather-by-glaive-ericdoa.lrc")
 
 func _ready():
-	$AudioStreamPlayer2D.play()
+	pass
+	#$Timer.start()
+	#$AudioStreamPlayer2D.play()
 
 func _on_timer_timeout():
 	if counter < len(lyrics):
