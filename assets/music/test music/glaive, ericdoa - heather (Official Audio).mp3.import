@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://7bxor2f6af"
+path="res://.godot/imported/glaive, ericdoa - heather (Official Audio).mp3-dc5a5cc7f431c18ae7f3e019371cf17e.mp3str"
+
+[deps]
+
+source_file="res://assets/music/test music/glaive, ericdoa - heather (Official Audio).mp3"
+dest_files=["res://.godot/imported/glaive, ericdoa - heather (Official Audio).mp3-dc5a5cc7f431c18ae7f3e019371cf17e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

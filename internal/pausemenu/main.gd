@@ -18,8 +18,6 @@ func _process(delta):
 		AudioServer.get_bus_effect(0,0).cutoff_hz = lerp(AudioServer.get_bus_effect(0,0).cutoff_hz, 20500.0, delta * 15)
 		if AudioServer.get_bus_effect(0,0).cutoff_hz < 20500.0:
 			AudioServer.set_bus_effect_enabled(0, 0, false)
-		
-	print(AudioServer.get_bus_effect(0,0).cutoff_hz)
 
 func togglepausemenu():
 	if not str(get_tree().get_current_scene().get_path()) in notallowed:

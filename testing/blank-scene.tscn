@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://cowfec7v420mu"]
+[gd_scene load_steps=5 format=3 uid="uid://cowfec7v420mu"]
 
 [ext_resource type="Script" path="res://testing/gridtest.gd" id="1_17vp2"]
+[ext_resource type="Script" path="res://testing/lyrictest.gd" id="2_w51to"]
+[ext_resource type="AudioStream" uid="uid://7bxor2f6af" path="res://assets/music/test music/glaive, ericdoa - heather (Official Audio).mp3" id="3_ajola"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ar6gy"]
+font_size = 20
 
 [node name="blank-scene" type="Control"]
 layout_mode = 3
@@ -24,3 +29,29 @@ offset_bottom = 18.424
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_17vp2")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -576.0
+offset_top = -217.0
+offset_right = 576.0
+grow_horizontal = 2
+grow_vertical = 0
+label_settings = SubResource("LabelSettings_ar6gy")
+script = ExtResource("2_w51to")
+
+[node name="Timer" type="Timer" parent="Label"]
+wait_time = 0.001
+one_shot = true
+autostart = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Label"]
+position = Vector2(0, -431)
+stream = ExtResource("3_ajola")
+
+[connection signal="timeout" from="Label/Timer" to="Label" method="_on_timer_timeout"]

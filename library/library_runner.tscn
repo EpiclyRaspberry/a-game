@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dn7i3tunucg1k"]
+
+[ext_resource type="Script" path="res://library/lrc-parser/lrc-parser.gd" id="1_rb14r"]
+
+[node name="library_runner" type="Node"]
+
+[node name="lrc_parser" type="Node" parent="."]
+script = ExtResource("1_rb14r")
