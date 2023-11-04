@@ -4,7 +4,6 @@ var srs
 var srp
 var gridsize
 
-
 func _draw():
 	for i in range(0, srs.y, 70):
 		draw_line(Vector2(srp.x, i), Vector2(srs.x, i), Color(255, 0, 0), 1)

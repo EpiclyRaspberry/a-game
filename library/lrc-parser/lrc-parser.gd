@@ -1,7 +1,7 @@
 extends Node
 
 func _ready():
-	Console.logconsole("[LIBRARY LOADED] %s" % name)
+	Console.log("[LIBRARY LOADED] %s" % name)
 
 func parse(path):
 	var parsed = []

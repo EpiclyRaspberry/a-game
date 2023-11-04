@@ -1,13 +1,7 @@
 extends ColorRect
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-	
 func get_godotversion():
 	return "{major}.{minor}".format({"major" :str(Engine.get_version_info().major),"minor": str(Engine.get_version_info().minor)})
-
 
 func _on_timer_timeout():
 	$ScrollContainer/VBoxContainer/fps.text = "FPS: {str}".format({"str": (Performance.get_monitor(Performance.TIME_FPS))} )

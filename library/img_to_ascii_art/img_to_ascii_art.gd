@@ -1,7 +1,7 @@
 extends Node
 
 func _ready():
-	Console.logconsole("[LIBRARY LOADED] %s" % name)
+	Console.log("[LIBRARY LOADED] %s" % name)
 
 var ASCII_CHARS = ["@", "#", "$", "%", "?", "*", "+", ";", ":", ",", "."] 
 # you can change this list
