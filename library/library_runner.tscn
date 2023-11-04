@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://dn7i3tunucg1k"]
+[gd_scene load_steps=5 format=3 uid="uid://dn7i3tunucg1k"]
 
 [ext_resource type="Script" path="res://library/lrc-parser/lrc-parser.gd" id="1_rb14r"]
 [ext_resource type="Script" path="res://library/srt-parser/srt-parser.gd" id="2_8t7tp"]
+[ext_resource type="Script" path="res://library/img_to_ascii_art/img_to_ascii_art.gd" id="3_5g6io"]
+[ext_resource type="Script" path="res://library/figlet_parser/figlet_parser.gd" id="4_tfr22"]
 
 [node name="library_runner" type="Node"]
 
@@ -10,3 +12,9 @@ script = ExtResource("1_rb14r")
 
 [node name="srt_parser" type="Node" parent="."]
 script = ExtResource("2_8t7tp")
+
+[node name="img_to_ascii_art" type="Node" parent="."]
+script = ExtResource("3_5g6io")
+
+[node name="figlet_parser" type="Node" parent="."]
+script = ExtResource("4_tfr22")

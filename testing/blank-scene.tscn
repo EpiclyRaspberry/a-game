@@ -1,20 +1,26 @@
-[gd_scene load_steps=8 format=3 uid="uid://cowfec7v420mu"]
+[gd_scene load_steps=10 format=3 uid="uid://cowfec7v420mu"]
 
 [ext_resource type="Script" path="res://testing/gridtest.gd" id="1_17vp2"]
 [ext_resource type="Script" path="res://testing/lyrictest.gd" id="2_w51to"]
 [ext_resource type="AudioStream" uid="uid://7bxor2f6af" path="res://assets/music/test music/glaive, ericdoa - heather (Official Audio).mp3" id="3_ajola"]
 [ext_resource type="VideoStream" path="res://assets/video/badapplething.ogv" id="4_65rpn"]
 [ext_resource type="Script" path="res://testing/subtest.gd" id="5_1yyoq"]
+[ext_resource type="Script" path="res://testing/drawtest.gd" id="6_c35p4"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ar6gy"]
 font_size = 20
 
 [sub_resource type="LabelSettings" id="LabelSettings_i6tpb"]
+line_spacing = 0.0
 font_size = 50
 font_color = Color(0, 0, 0, 1)
 outline_size = 4
 shadow_size = 4
 shadow_color = Color(0, 0, 0, 0.584314)
+
+[sub_resource type="LabelSettings" id="LabelSettings_o4wuh"]
+line_spacing = 0.0
+font_size = 5
 
 [node name="blank-scene" type="Control"]
 layout_mode = 3
@@ -87,6 +93,15 @@ vertical_alignment = 1
 [node name="Timer" type="Timer" parent="VideoStreamPlayer"]
 wait_time = 0.001
 one_shot = true
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+label_settings = SubResource("LabelSettings_o4wuh")
+vertical_alignment = 3
+script = ExtResource("6_c35p4")
 
 [connection signal="timeout" from="Label/Timer" to="Label" method="_on_timer_timeout"]
 [connection signal="timeout" from="VideoStreamPlayer/Timer" to="VideoStreamPlayer" method="_on_timer_timeout"]

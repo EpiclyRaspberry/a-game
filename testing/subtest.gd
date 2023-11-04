@@ -5,7 +5,7 @@ var played = false
 var sub = Library.get_node("srt_parser").parse_minus_last_timestamp("res://assets/subtitles/test/badapple.srt")
 
 func _ready():
-	play()
+	#play()
 	pass
 
 func _process(delta):
