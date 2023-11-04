@@ -3,14 +3,18 @@
 [ext_resource type="Script" path="res://testing/gridtest.gd" id="1_17vp2"]
 [ext_resource type="Script" path="res://testing/lyrictest.gd" id="2_w51to"]
 [ext_resource type="AudioStream" uid="uid://7bxor2f6af" path="res://assets/music/test music/glaive, ericdoa - heather (Official Audio).mp3" id="3_ajola"]
-[ext_resource type="VideoStream" path="res://assets/video/half-life2-intro.ogv" id="4_um2a1"]
+[ext_resource type="VideoStream" path="res://assets/video/badapplething.ogv" id="4_65rpn"]
 [ext_resource type="Script" path="res://testing/subtest.gd" id="5_1yyoq"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ar6gy"]
 font_size = 20
 
 [sub_resource type="LabelSettings" id="LabelSettings_i6tpb"]
-font_size = 30
+font_size = 50
+font_color = Color(0, 0, 0, 1)
+outline_size = 4
+shadow_size = 4
+shadow_color = Color(0, 0, 0, 0.584314)
 
 [node name="blank-scene" type="Control"]
 layout_mode = 3
@@ -65,16 +69,20 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-stream = ExtResource("4_um2a1")
-autoplay = true
+stream = ExtResource("4_65rpn")
+expand = true
 script = ExtResource("5_1yyoq")
 
 [node name="Label" type="Label" parent="VideoStreamPlayer"]
-layout_mode = 0
-offset_top = 324.0
-offset_right = 1152.0
-offset_bottom = 648.0
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 label_settings = SubResource("LabelSettings_i6tpb")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Timer" type="Timer" parent="VideoStreamPlayer"]
 wait_time = 0.001

@@ -2,7 +2,11 @@ extends VideoStreamPlayer
 
 var counter = 0
 var played = false
-var sub = Library.get_node("srt_parser").parse_minus_last_timestamp("res://assets/subtitles/test/half-life-2-intro.srt")
+var sub = Library.get_node("srt_parser").parse_minus_last_timestamp("res://assets/subtitles/test/badapple.srt")
+
+func _ready():
+	play()
+	pass
 
 func _process(delta):
 	if not played:
@@ -22,3 +26,4 @@ func _on_timer_timeout():
 		$Timer.start()
 	else:
 		$Label.text = sub[counter - 1][2]
+	pass

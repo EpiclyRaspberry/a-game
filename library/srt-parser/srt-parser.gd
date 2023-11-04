@@ -9,6 +9,7 @@ func parse(path):
 	var parsed = []
 	var tempparsed = []
 	var contenting = []
+	var text = ""
 	for i in content:
 		tempparsed.append(i.replace("\n", ""))
 	for i in tempparsed:
@@ -19,12 +20,14 @@ func parse(path):
 				for ting in i.split("-->"):
 					contenting.append((float(ting.replace(",", ".").replace(" ", "").split(":")[0]) * 60 * 60) + (float(ting.replace(",", ".").replace(" ", "").split(":")[1]) * 60) + float(ting.replace(",", ".").replace(" ", "").split(":")[2]))
 			else:
-				contenting.append(i)
+				text += ("%s\n" % i)
 		else:
 			if contenting != []:
+				contenting.append(text)
 				parsed.append(contenting)
 			contenting = []
-			
+			text = ""
+
 	return parsed
 	
 	# regex who? 💀💀💀

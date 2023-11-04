@@ -116,6 +116,7 @@ offset_right = 186.001
 offset_bottom = 60.004
 grow_horizontal = 0
 text = "Template"
+autowrap_mode = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="base"]
 autoplay = "fadein"
