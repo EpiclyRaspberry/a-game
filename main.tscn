@@ -86,6 +86,19 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "test notification"
 
+[node name="gototest" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.812
+anchor_right = 0.996
+anchor_bottom = 0.995
+offset_left = 4.0
+offset_top = -0.176025
+offset_right = -0.39209
+offset_bottom = 0.239929
+text = "GO TO TESTING SCENE"
+
 [connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="crash" to="." method="_on_crash_pressed"]
 [connection signal="pressed" from="notification" to="." method="_on_notification_pressed"]
+[connection signal="pressed" from="gototest" to="." method="_on_gototest_pressed"]

@@ -24,3 +24,7 @@ func _on_crash_pressed():
 func _on_notification_pressed():
 #	Notification.send("shoutout", "amazer but normal", "normal")
 	Notification.send("shoutout", "amazer but rgb", "chroma")
+
+
+func _on_gototest_pressed():
+	Scenechanger.change_scene("res://testing/blank-scene.tscn")

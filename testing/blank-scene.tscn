@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cowfec7v420mu"]
+[gd_scene load_steps=12 format=3 uid="uid://cowfec7v420mu"]
 
 [ext_resource type="Script" path="res://testing/gridtest.gd" id="1_17vp2"]
 [ext_resource type="Script" path="res://testing/lyrictest.gd" id="2_w51to"]
@@ -6,6 +6,7 @@
 [ext_resource type="VideoStream" path="res://assets/video/badapplething.ogv" id="4_65rpn"]
 [ext_resource type="Script" path="res://testing/subtest.gd" id="5_1yyoq"]
 [ext_resource type="Script" path="res://testing/drawtest.gd" id="6_c35p4"]
+[ext_resource type="Script" path="res://testing/texttoasciitest.gd" id="7_h7d61"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ar6gy"]
 font_size = 20
@@ -21,6 +22,9 @@ shadow_color = Color(0, 0, 0, 0.584314)
 [sub_resource type="LabelSettings" id="LabelSettings_o4wuh"]
 line_spacing = 0.0
 font_size = 5
+
+[sub_resource type="LabelSettings" id="LabelSettings_jhkxs"]
+font_size = 8
 
 [node name="blank-scene" type="Control"]
 layout_mode = 3
@@ -102,6 +106,21 @@ anchor_bottom = 1.0
 label_settings = SubResource("LabelSettings_o4wuh")
 vertical_alignment = 3
 script = ExtResource("6_c35p4")
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.981
+anchor_bottom = 0.235
+offset_right = 21.8879
+offset_bottom = -0.280014
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_jhkxs")
+vertical_alignment = 1
+justification_flags = 128
+script = ExtResource("7_h7d61")
 
 [connection signal="timeout" from="Label/Timer" to="Label" method="_on_timer_timeout"]
 [connection signal="timeout" from="VideoStreamPlayer/Timer" to="VideoStreamPlayer" method="_on_timer_timeout"]
