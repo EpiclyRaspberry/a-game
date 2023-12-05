@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cxl3g4yl3fg3l"]
 
-[ext_resource type="PackedScene" uid="uid://b1oyygl1vdtmd" path="res://internal/indicator/debug/debug.tscn" id="1_j15wy"]
+[ext_resource type="PackedScene" uid="uid://b1oyygl1vdtmd" path="res://internal/overlay/indicator/debug/debug.tscn" id="1_j15wy"]
 
 [node name="indicator" type="Control"]
 layout_mode = 3

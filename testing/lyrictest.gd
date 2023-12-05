@@ -5,8 +5,8 @@ var lyrics = Library.get_node("lrc_parser").parse_only_timestamp_and_lyric_minus
 
 func _ready():
 	pass
-	#$Timer.start()
-	#$AudioStreamPlayer2D.play()
+	$Timer.start()
+	$AudioStreamPlayer2D.play()
 
 func _on_timer_timeout():
 	if counter < len(lyrics):

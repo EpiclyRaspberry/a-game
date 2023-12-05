@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://fa0xdt2qkku1"]
 
-[ext_resource type="Script" path="res://internal/notification/notification.gd" id="1_x3xeh"]
-[ext_resource type="Script" path="res://internal/notification/base.gd" id="2_5wv34"]
+[ext_resource type="Script" path="res://internal/overlay/notification/notification.gd" id="1_x3xeh"]
+[ext_resource type="Script" path="res://internal/overlay/notification/base.gd" id="2_5wv34"]
 
 [sub_resource type="Animation" id="Animation_7vkhh"]
 length = 0.001
@@ -81,12 +81,9 @@ script = ExtResource("2_5wv34")
 [node name="ColorRect" type="ColorRect" parent="base"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.076
 anchor_right = 0.5
 anchor_bottom = 0.076
-offset_left = -185.999
-offset_top = -11.476
+offset_left = 0.000335693
 offset_right = 187.001
 offset_bottom = 11.524
 color = Color(0, 0, 0, 1)
@@ -119,7 +116,7 @@ text = "Template"
 autowrap_mode = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="base"]
-autoplay = "fadein"
 libraries = {
 "": SubResource("AnimationLibrary_stvsw")
 }
+autoplay = "fadein"

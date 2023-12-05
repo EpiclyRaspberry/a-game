@@ -9,7 +9,14 @@ func log(thing):
 	$CanvasLayer/base/ScrollContainer/VBoxContainer.printer(thing)
 
 func toggleconsolevisible():
-		if $CanvasLayer.visible == false:
-			$CanvasLayer.visible = true
-		else:
-			$CanvasLayer.visible = false
+	
+	var tween = get_tree().create_tween()
+	
+	if $CanvasLayer.visible == false:
+		$CanvasLayer.visible = true
+		tween.tween_property($CanvasLayer, "scale", Vector2(1, 1), 0.2).set_trans(Tween.TRANS_CUBIC)
+	else:
+		tween.tween_property($CanvasLayer, "scale", Vector2(2, 0.001), 0.1).set_trans(Tween.TRANS_CUBIC)
+		tween.tween_callback($CanvasLayer.hide)
+		
+	

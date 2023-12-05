@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://bekauksakguwt"]
 
-[ext_resource type="Shader" path="res://assets/shader/blur.gdshader" id="1_rm41k"]
+[ext_resource type="Shader" path="res://assets/shader/blur.gdshader" id="1_cs06v"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5p83d"]
-shader = ExtResource("1_rm41k")
+shader = ExtResource("1_cs06v")
 shader_parameter/amount = 1.292
 
 [sub_resource type="Theme" id="Theme_cx6i2"]

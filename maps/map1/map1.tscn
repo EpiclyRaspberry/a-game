@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://8q25p8m0q01e"]
 
 [ext_resource type="PackedScene" uid="uid://cjge8ksxu7m40" path="res://internal/player/playerbase.tscn" id="2_pccs4"]
-[ext_resource type="AudioStream" uid="uid://0ff3lw7a3o4f" path="res://assets/music/test music/01 - groundwar003.mp3" id="2_qpr85"]
+[ext_resource type="AudioStream" uid="uid://7bxor2f6af" path="res://assets/music/test music/glaive, ericdoa - heather (Official Audio).mp3" id="2_xo8xg"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sfk2t"]
 
@@ -21,11 +21,15 @@ shape = SubResource("BoxShape3D_sfk2t")
 mesh = SubResource("BoxMesh_evdev")
 
 [node name="playerbase" parent="." instance=ExtResource("2_pccs4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.29917)
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_kki4u")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="MeshInstance3D2"]
 process_mode = 3
-stream = ExtResource("2_qpr85")
+stream = ExtResource("2_xo8xg")
+volume_db = -12.308
 autoplay = true
+emission_angle_enabled = true
+doppler_tracking = 2

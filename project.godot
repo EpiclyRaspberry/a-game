@@ -12,19 +12,19 @@ config_version=5
 
 config/name="a--game"
 run/main_scene="res://main.tscn"
-config/features=PackedStringArray("4.1", "Forward Plus")
+config/features=PackedStringArray("4.2", "Forward Plus")
 boot_splash/image="res://assets/logo/splashscreen.png"
 config/icon="res://icon.svg"
 
 [autoload]
 
-PauseMenu="*res://internal/pausemenu/main.tscn"
+PauseMenu="*res://internal/overlay/pausemenu/main.tscn"
 Console="*res://internal/console/console.tscn"
-Scenechanger="*res://internal/scenechanger/scenechanger.tscn"
+Scenechanger="*res://internal/overlay/scenechanger/scenechanger.tscn"
 Gvars="*res://internal/variable/gvars.tscn"
-Indicator="*res://internal/indicator/indicator.tscn"
+Indicator="*res://internal/overlay/indicator/indicator.tscn"
 Gv="*res://internal/globalvar/gv.tscn"
-Notification="*res://internal/notification/notification.tscn"
+Notification="*res://internal/overlay/notification/notification.tscn"
 Intro="*res://assets/logo/intro.tscn"
 Library="*res://library/library_runner.tscn"
 

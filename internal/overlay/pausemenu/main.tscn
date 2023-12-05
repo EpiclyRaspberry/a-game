@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://du6otsitr4ryg"]
 
-[ext_resource type="Script" path="res://internal/pausemenu/main.gd" id="1_rsxfe"]
+[ext_resource type="Script" path="res://internal/overlay/pausemenu/main.gd" id="1_rsxfe"]
 [ext_resource type="PackedScene" uid="uid://b1n7afr0tykjh" path="res://maps/mapselector.tscn" id="2_l5kkk"]
-[ext_resource type="Shader" path="res://internal/pausemenu/main.gdshader" id="2_xoe16"]
+[ext_resource type="Shader" path="res://internal/overlay/pausemenu/main.gdshader" id="2_xoe16"]
 [ext_resource type="PackedScene" uid="uid://bekauksakguwt" path="res://internal/setting/setting.tscn" id="3_cf4qq"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tdvs8"]

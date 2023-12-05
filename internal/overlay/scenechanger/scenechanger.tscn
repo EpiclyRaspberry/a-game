@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cvjep32npf0nt"]
 
-[ext_resource type="Script" path="res://internal/scenechanger/scenechanger.gd" id="1_sbqef"]
+[ext_resource type="Script" path="res://internal/overlay/scenechanger/scenechanger.gd" id="1_sbqef"]
 [ext_resource type="FontFile" uid="uid://cfuge52dwvbk3" path="res://assets/fonts/Poppins-Regular.ttf" id="2_04sqk"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ltomy"]
