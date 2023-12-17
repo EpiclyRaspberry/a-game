@@ -19,7 +19,7 @@ const HALFPI = PI/2
 var crouching = false
 
 var is_zoomed = false
-var camerasensnerf = 1
+var camerasensnerf = 0.5
 
 ##camera stuffs
 #var zcamtimer = Timer.new()

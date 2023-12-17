@@ -19,7 +19,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if not "PauseMenu" in Gv.names(str(get_tree().get_current_scene().get_path())):
+	if not "PauseMenu" in Gv.names(str(get_tree().get_current_scene())):
 		if Input.is_action_just_pressed("ui_cancel"):
 			visible = false
 
