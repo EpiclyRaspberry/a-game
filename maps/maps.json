@@ -1,5 +1,10 @@
 [
 	{
+		"name":"Test Map",
+		"description":"test shit here",
+		"path":"testmap1"	
+	},
+	{
 		"name":"Map 1",
 		"description":"This is Map 1",
 		"path":"map1"

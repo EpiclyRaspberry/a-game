@@ -1,0 +1,94 @@
+[gd_scene load_steps=12 format=3 uid="uid://dw8i5s1fvmkng"]
+
+[ext_resource type="PackedScene" uid="uid://cjge8ksxu7m40" path="res://internal/player/playerbase.tscn" id="1_twejo"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_f7yuk"]
+sky_top_color = Color(0, 0, 0, 1)
+sky_horizon_color = Color(0, 0, 0, 1)
+sky_curve = 0.0568394
+sky_cover_modulate = Color(0, 0, 0, 1)
+ground_bottom_color = Color(0, 0, 0, 1)
+ground_horizon_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Sky" id="Sky_w02d6"]
+sky_material = SubResource("ProceduralSkyMaterial_f7yuk")
+
+[sub_resource type="Environment" id="Environment_fyucj"]
+background_mode = 2
+sky = SubResource("Sky_w02d6")
+tonemap_mode = 2
+ssao_enabled = true
+glow_enabled = true
+glow_normalized = true
+glow_intensity = 8.0
+glow_strength = 0.9
+glow_mix = 0.079
+glow_bloom = 1.0
+glow_blend_mode = 1
+fog_light_color = Color(0.0941176, 0.105882, 0.12549, 1)
+fog_light_energy = 0.0
+
+[sub_resource type="Curve" id="Curve_l8aji"]
+_data = [Vector2(0.01, 0.0285541), 0.0, 0.0, 0, 0, Vector2(0.194805, 0.758242), 0.997633, 0.997633, 0, 0, Vector2(0.991667, 0.0561968), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_014fd"]
+curve = SubResource("Curve_l8aji")
+
+[sub_resource type="Curve" id="Curve_obglq"]
+max_value = 5.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.264069, 4.23077), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_844gg"]
+curve = SubResource("Curve_obglq")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_f7g03"]
+lifetime_randomness = 0.4
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+gravity = Vector3(0, 0, 0)
+linear_accel_max = 0.1
+tangential_accel_max = 0.1
+scale_curve = SubResource("CurveTexture_014fd")
+scale_over_velocity_curve = SubResource("CurveTexture_844gg")
+color = Color(1, 0.0509804, 0.54902, 1)
+hue_variation_min = -0.5
+hue_variation_max = 1.0
+anim_speed_min = 4.41
+anim_speed_max = 4.41
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_fycwn"]
+albedo_color = Color(0, 0, 0, 1)
+emission_enabled = true
+emission = Color(0.431373, 0, 0, 1)
+emission_energy_multiplier = 8.63
+clearcoat_enabled = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_1ob06"]
+material = SubResource("ORMMaterial3D_fycwn")
+radius = 0.05
+height = 0.1
+
+[node name="testmap1" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_fyucj")
+
+[node name="playerbase" parent="." instance=ExtResource("1_twejo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.52339, 4.25)
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+motion_mode = 1
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(4.2, 0, 0, 0, 4.2, 0, 0, 0, 4.2, 0, 0, 0)
+amount = 100
+collision_base_size = 9.41
+visibility_aabb = AABB(-1, -1, -1, 2, 2, 2)
+trail_lifetime = 3.3
+process_material = SubResource("ParticleProcessMaterial_f7g03")
+draw_pass_1 = SubResource("SphereMesh_1ob06")
+
+[editable path="playerbase"]
