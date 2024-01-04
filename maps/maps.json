@@ -8,5 +8,10 @@
 		"name":"Map 2",
 		"description":"This is Map 2",
 		"path":"map2"
+	},
+	{
+		"name": "Dam The Game, Project",
+		"description":"Map 1",
+		"path":"dam"
 	}
 ]
