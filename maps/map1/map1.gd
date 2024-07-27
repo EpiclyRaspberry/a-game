@@ -18,7 +18,8 @@ func get_disp_center():
 func _ready():
 	pass # Replace with function body.
 
-
+func distance(v1: Vector3, v2: Vector3):
+	pass
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	get_disp_center()
@@ -34,4 +35,4 @@ func _process(delta):
 	if Input.is_action_just_pressed("mouseright"):
 		print("right")
 		bdisp.position = raycast.get_collision_point()-Vector3(.00001,.00001,.00001)
-	pass
+	
